@@ -1,6 +1,6 @@
 'use strict';
 
-var BOMB_img = '<img src="img/bomb.jpg" />'
+var BOMB_img = '<img class="bomb-img" src="img/bomb.jpg" />'
 var FLAG_img = '<img src="img/flag.jpg" />'
 
 var gBoard = createBoard(5, 5);
@@ -12,12 +12,12 @@ var gCell = {
     isMarked: true
 }
 var gCellsArray = [];
-var gBombs = 0;
-
+var gBombs = 3;
+var gCellCount = 0;
 
 function init() {
     var gBoard = createBoard(5, 5);
-    getRandomBomb(gBoard, 3)
+    getRandomBomb(gBoard, gBombs)
     getMinesAround(gBoard)
     renderBoard(gBoard);
 
@@ -43,6 +43,7 @@ function createBoard(ROWS, COLS) {
         }
         board.push(row)
     }
+    gCellCount = (ROWS*COLS)-gBombs
     return board;
 
 }
@@ -58,17 +59,12 @@ function renderBoard(board) {
         for (var j = 0; j < board[0].length; j++) {
 
             var cell = board[i][j];
-            var cellClass = '';
-            if (cell.isMine === true) cellClass += ' img'; 
-            if (cell.isShown) cellClass += ' selected'; 
-            
-            strHTML += `\t<td class="cell ${i}-${j}" onclick="cellClicked(this,${i},${j})" onmousedown="cellMarked(this,${i},${j})">\n`;
-            if (board[i][j].isShown === false) 
-            if (board[i][j].isMine === true) {
 
-                gBombs++
-            }
-            if (board[i][j].minesAroundCount === 0) strHTML += ' ';
+
+            strHTML += `\t<td class="cell ${i}-${j}" onclick="cellClicked(this,${i},${j})" onmousedown="cellMarked(this,${i},${j})">\n`;
+            // if (board[i][j].isShown === false)
+
+            //if (board[i][j].minesAroundCount === 0) strHTML += ' ';
             //else if (board[i][j].isMine === false) strHTML += `${board[i][j].minesAroundCount}`
         }
         strHTML += '\t</td>\n';
@@ -130,21 +126,57 @@ function getMinesAround(board) {
     }
 }
 
-function cellClicked(elCell,i,j){
+
+function cellClicked(elCell, i, j) {
     var cell = gBoard[i][j];
-    cell.isShown = true;
+
+    if (cell.isShown === true) return;
+    
 
     if (cell.isMine === true) {
-        elCell.innerHTML += BOMB_img; 
-        alert('GAME-OVER')
-        gameOver()
+        elCell.innerHTML = BOMB_img;
+        //revealBombs(elCell)
+        elCell.classList.toggle('selected')
+
+        gameOver(i, j)
         return;
-    }
-     elCell.innerText = cell.minesAroundCount
-      
+    } else elCell.innerText = cell.minesAroundCount
+    cell.isShown = true;
+    gCellCount-
+    console.log(gCellCount);
+    gameOver(i, j)
 }
 
-function cellMarked(elCell,i,j){
+function cellMarked(elCell, i, j) {
     var cell = gBoard[i][j];
-    console.log(elCell.type);
+    if (cell.isShown === true || cell.isMarked === true) return;
+    if (cell.isMine === true) {
+        cell.isMine === false;
+        
+    }
+    elCell.innerHTML += FLAG_img;
+    cell.isMarked = true;
+    gCellCount--
+
+}
+
+function gameOver(i, j) {
+    var cell = gBoard[i][j];
+    console.log(gBombs);
+    if (cell.isMine === true) {
+        alert('GAME OVER!')
+    }
+    if (gCellCount === 0) alert('YOU WON!')
+}
+
+
+function revealBombs(elCell) {
+
+    for (var i = 0; i < gBoard.length; i++) {
+        for (var j = 0; j < gBoard[i].length; j++) {
+            if (gBoard[i][j].isMine === true) {
+
+            }
+        }
+    }
 }

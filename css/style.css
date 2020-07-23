@@ -12,6 +12,10 @@ body {
     
 }
 
+.selected{
+    background-color: rgb(182, 14, 14);
+}
+
 .cell:hover{
     background-color:rgb(136, 130, 130);
 }
@@ -22,6 +26,7 @@ img {
     
 }
 
-.selected{
-    background-color: darkgreen;
+.bomb-img{
+    visibility: visible;
 }
+
