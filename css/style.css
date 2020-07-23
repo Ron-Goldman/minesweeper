@@ -1,0 +1,27 @@
+body {
+    background:white;
+   
+}
+
+.cell{
+    background-color:rgb(189, 186, 186);
+    height: 30px;
+    width: 30px;
+    padding: 5px;
+    cursor: pointer;
+    
+}
+
+.cell:hover{
+    background-color:rgb(136, 130, 130);
+}
+
+img { 
+    visibility: visible;
+    height: 25px;
+    
+}
+
+.selected{
+    background-color: darkgreen;
+}
