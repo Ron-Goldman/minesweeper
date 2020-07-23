@@ -20,8 +20,6 @@ function init() {
     getRandomBomb(gBoard, gBombs)
     getMinesAround(gBoard)
     renderBoard(gBoard);
-
-
 }
 
 
