@@ -1,15 +1,74 @@
+
 body {
-    background:white;
-   
+    background-color: darkgrey;
+}
+
+h1 {
+    padding-bottom: 5px;
+    background-color: rgb(231, 67, 67);
+
+}
+
+.modal h1{
+    background-color: seagreen;
+    padding-bottom: 5px;
+}
+
+.modal {
+    position: fixed;
+    left: 0px;
+    background-color: black;
+    border: 5px solid red;
+    border-style: groove;
+    margin-bottom: 20px;
+    height: 250px;
+    color:red;
+    width: 400px;
+    text-align: center;
+    font-size: x-large;
+    font-weight: 500;
+    display: inline-block;
+    margin-left: auto;
+  margin-right: auto;
+  position: absolute;
+    left: 500px;
+    top: 100px;
+}
+table{
+    border: black;
+    border-width: 10px;
+    background-color: black;
+    padding: 5px;
+    position: relative;
+    top: 100px;
+    display: inline-flexbox;
+    
+    
+}
+
+.box-game{
+    border: black;
+    border-width: 10px;
+    background-color: black;
+    
+
 }
 
 .cell{
     background-color:rgb(189, 186, 186);
     height: 30px;
     width: 30px;
-    padding: 5px;
+    padding: 10px;
     cursor: pointer;
+    border: black;
+    border-width: 10px;
+    text-align: center;
     
+    
+}
+
+.selected-cell{
+    background-color:rgb(70, 66, 66);
 }
 
 .selected{
@@ -29,4 +88,26 @@ img {
 .bomb-img{
     visibility: visible;
 }
+
+button{
+display:inline-block;
+padding:0.3em 1.2em;
+margin:0 0.3em 0.3em 0;
+border-radius:6em;
+box-sizing: border-box;
+text-decoration:none;
+font-family:'Roboto',sans-serif;
+font-weight:500;
+color:ghostwhite;
+background-color:rgb(136, 130, 130);
+text-align:center;
+transition: all 0.2s;
+cursor: pointer;
+}
+button:hover{
+background-color:#4095c6;
+}
+
+
+
 

@@ -1,19 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mine-Sweeper</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body onload="init()" oncontextmenu="return false;">
-    <table>
-        <tbody class="box-game">
+
+<div class="modal">
+    <h1 hidden>YOU LOST!</h1>
+    <h2>score: <span>0</span></h2>
+    <h3>timer: <span>0.00</span></h3>
+    <button class="button" onclick="init(4,4,2)">play again</button>
+    <div class="level">
+        <button class="easy" onclick="init(4,4,2)">easy</button>
+        <button class="medium" onclick="init(6,6,4)">medium</button>
+        <button class="hard" onclick="init(9,9,6)">hard</button>
+
+    </div>
+    
+  </div>
+
+<body onload="init(4,4,2)" oncontextmenu="return false;">
+ <h1><span>Play mine-sweeper</span> </h1>
+    
+  
+
+    <table class="box-game" >
+        <tbody >
 
         </tbody>
     </table>
-    <button class="button" onclick="init()">play again</button>
+    <button class="hint" onclick="init()">get a hint</button>
+    
+
     <script src="js/util.js"></script>
     <script src="js/main.js"></script>
+
 </body>
+
 </html>
